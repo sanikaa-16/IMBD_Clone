@@ -1,0 +1,97 @@
+/* Reset margin/padding and set background */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.navbar {
+    background-color: #202022;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+/* Logo */
+.logo-image {
+    height: 35px;
+    width: auto;
+    display: block;
+}
+
+/* Optional: Add spacing between logo and other items */
+.logo {
+    margin-right: 40px;
+}
+
+/* Optional: Add hover effect to nav items */
+.nav-item:hover {
+    color: #f1c40f;
+    cursor: pointer;
+}
+
+.nav-item:last-child {
+    margin-left: auto;
+}
+
+.menu i{
+    font-size: 20px;
+    color: white;
+    margin-right: 25px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 35px;
+    white-space: nowrap;
+}
+
+/* Make form behave like a row */
+.search-form {
+    display: flex;
+    margin: 0;
+}
+
+/* Search input styles */
+.search-input {
+    border: none;
+    padding: 8px 10px;
+    outline: none;
+    font-size: 14px;
+    width: 600px; /* adjust width if needed */
+    height: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Search button styles */
+.search-button {
+    height: 35px;
+    width: 70px;
+    background-color: #f1c40f;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;  /* center text horizontally */
+    align-items: center;      /* center text vertically */
+    padding-left: 0;
+    cursor: pointer;
+    font-weight: bold;
+}

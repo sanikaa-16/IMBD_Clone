@@ -1,0 +1,126 @@
+h1{
+    color:#f1c40f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 15px;
+}
+
+/* Container for search bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 35px;
+    white-space: nowrap;
+}
+
+/* Make form behave like a row */
+.search-form {
+    display: flex;
+    margin: 0;
+}
+
+/* Search input styles */
+.search-input {
+    border: none;
+    padding: 8px 10px;
+    outline: none;
+    font-size: 14px;
+    width: 600px; /* adjust width if needed */
+    height: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Search button styles */
+.search-button {
+    height: 35px;
+    width: 70px;
+    background-color: #f1c40f;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;  /* center text horizontally */
+    align-items: center;      /* center text vertically */
+    padding-left: 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.scroll-container-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 0 40px;
+}
+
+.scroll-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    gap: 15px; /* Less space between cards */
+}
+
+.poster-card {
+    flex: 0 0 auto; /* Prevent shrinking */
+    width: 210px;
+    border-radius: 10px;
+    background-color: #2c2c2e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+
+.poster-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.movie-info {
+    padding: 10px;
+    color: white;
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.movie-info h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 5px 0;
+    font-family: 'Roboto', sans-serif;;
+}
+
+.movie-info p {
+    font-size: 15px;
+    margin: 0;
+    color: #ccc;
+}
+
+
+.scroll-btn {
+    position: absolute;
+    top: 40%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.scroll-btn.left {
+    left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+

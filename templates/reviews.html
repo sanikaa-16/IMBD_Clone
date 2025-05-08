@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}IMDb: Rating, Reviews, and Where to Watch the Best Movies & TV Shows{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
+<!-- <h1 class="page-title" style="margin-left:10px;">
+    Search Results:
+</h1> -->
+
+<div class="container">
+
+    <div class="flex-container title-rating">
+        <div class="title-block">
+            <h2 class="movie-title">{{ movie.title }}</h2>
+            
+            <!-- Meta Info below title -->
+            <div class="flex-container meta-info">
+                <div class="release">{{ movie.release_date[:4] }} ·</div>
+                <div class="adult">{% if not movie.adult %}PG{% else %}A{% endif %}</div>
+            </div>
+        </div>
+    
+        <!-- Grouped Bookmark + Ratings -->
+        <div class="rating-group">
+            <div class="watchlist">
+                <i class="fa-solid fa-bookmark"></i>
+            </div>
+            <div class="rating-text">
+                <div style="font-weight: 300; font-size:small; color:#ccc;">IMDb Rating</div>
+                <div><i class="fa-solid fa-star" style="color:rgb(255, 222, 9);"></i> {{ movie.rating }}/10</div>
+                <div style="font-weight: 300; font-size:10px; color:#ccc;">{{ movie.reviews }} votes</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="flex-container">
+        <img src="{{ movie.poster_url }}" alt="Poster" class="poster">
+        <div class="details">
+            <p><span class="headings">Language:</span> {{ movie.language }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
+            <p><span class="headings">Overview:</span> {{ movie.overview }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
+            <p><span class="headings">Director:</span> {{ movie.director }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
+            <p><span class="headings">Cast:</span> {{ movie.cast_string }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="reviews-title">Top Cast <i class="fa-solid fa-circle-chevron-right"></i></h2>
+    <div class="cast-list-container">
+        {% for cast in movie.cast_list %}
+            <div class="cast-card">
+                <img src="{{ cast.profile_url }}" alt="Profile" class="cast-poster">
+                <div class="cast-details">
+                    <p style="color:wheat; font-size: smaller; font-weight: 200;"> {{ cast.name }}</p>
+                    <p style="color:gray; font-size: small;">{{ cast.character }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

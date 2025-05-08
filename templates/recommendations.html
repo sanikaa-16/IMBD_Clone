@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}IMDb: Rating, Reviews, and Where to Watch the Best Movies & TV Shows{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='recommendations.css') }}">
+
+<div class="container">
+    <h1>Get Recommendations for your favorite movies!</h1>
+
+    <div class="nav-item search-container" style="padding:20px; margin-left:40px; border-radius: 15px;">
+        <form action="/recommendations" method="GET" class="search-form">
+            <input type="text" name="movie_name" placeholder="Enter your favorite movie" class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if movie_recommendations %}
+        <h2 style="color:white; padding-top:20px; padding:15px; font-family: 'Roboto', sans-serif; font-weight: 500;">Recommended Movies Similar to '{{movie_name}}'</h2>
+        <div class="scroll-container-wrapper">
+            <button class="scroll-btn left" onclick="scrollLeft()">&#10094;</button>
+        
+            <div class="scroll-container" id="scroll-container">
+                {% for movie in movie_recommendations %}
+                <div class="poster-card">
+                    <a href="{{ url_for('search', query=movie.title) }}">
+                        <img src="{{ movie.poster_url }}">
+                    </a>
+                    <div class="movie-info">
+                        <h3>{{ movie.title }}</h3>
+                        <p><i class="fa-solid fa-star" style="color:rgb(243, 233, 55)"></i> {{ movie.rating }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        
+            <button class="scroll-btn right" onclick="scrollRight()">&#10095;</button>
+        </div>        
+    {% endif %}
+</div>
+
+{% endblock %}
+

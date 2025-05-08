@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}IMDb Clone{% endblock %}</title>
+        <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    
+        <!-- ✅ Font Awesome CDN -->
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+          integrity="sha512-..."
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+    </head>
+    
+<body>
+    <nav class="navbar">
+        <div class="flex-container">
+            <div class="logo">
+                <a href="{{url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-image"></a>
+            </div>
+            <div class="nav-item"><i class="fas fa-bars"></i> Menu </div>
+            <div class="nav-item search-container">
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" name="query" placeholder="Search IMDb" class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="nav-item"><i class="fa-solid fa-bookmark"></i> Watch-List</div>
+            <div class="nav-item"><i class="fa-solid fa-sliders"></i> Get Recommendations</div>
+            <div class="nav-item">Sign-in <i class="fa-solid fa-circle-user"></i> </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
+
+<script>
+    // ✅ Global function: attached directly to window
+    function scrollLeft() {
+        const container = document.getElementById('scroll-container');
+        container.scrollBy({ left: -300, behavior: 'smooth' });
+    }
+  
+    function scrollRight() {
+        const container = document.getElementById('scroll-container');
+        container.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  </script>
+  
