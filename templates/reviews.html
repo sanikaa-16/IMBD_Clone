@@ -4,9 +4,6 @@
 
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
-<!-- <h1 class="page-title" style="margin-left:10px;">
-    Search Results:
-</h1> -->
 
 <div class="container">
 
@@ -23,9 +20,15 @@
     
         <!-- Grouped Bookmark + Ratings -->
         <div class="rating-group">
-            <div class="watchlist">
-                <i class="fa-solid fa-bookmark"></i>
-            </div>
+           <div class = "watchlist">
+            {% if session['user_id'] %}
+                <form action="{{ url_for('add_to_watchlist', movie_id=movie.id) }}" method="POST">
+                <input type="hidden" name="movie_title" value="{{ movie.title }}">
+                <button type="submit"><i class="fa-solid fa-bookmark"></i></button>
+                </form>
+            {% endif %}
+           </div>
+
             <div class="rating-text">
                 <div style="font-weight: 300; font-size:small; color:#ccc;">IMDb Rating</div>
                 <div><i class="fa-solid fa-star" style="color:rgb(255, 222, 9);"></i> {{ movie.rating }}/10</div>
@@ -36,12 +39,16 @@
     
 
     <div class="flex-container">
-        <img src="{{ movie.poster_url }}" alt="Poster" class="poster">
+        <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="Poster" class="poster">
         <div class="details">
             <p><span class="headings">Language:</span> {{ movie.language }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
             <p><span class="headings">Overview:</span> {{ movie.overview }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
             <p><span class="headings">Director:</span> {{ movie.director }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
-            <p><span class="headings">Cast:</span> {{ movie.cast_string }}</p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
+            <p><span class="headings">Cast:</span> 
+                {% for cast_member in movie.cast %}
+                    {{ cast_member.name }} as {{ cast_member.character }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p><hr style="height: 1px; background-color: rgb(192, 192, 192); border: none;">
         </div>
     </div>
 </div>
@@ -49,7 +56,7 @@
 <div class="container">
     <h2 class="reviews-title">Top Cast <i class="fa-solid fa-circle-chevron-right"></i></h2>
     <div class="cast-list-container">
-        {% for cast in movie.cast_list %}
+        {% for cast in movie.cast %}
             <div class="cast-card">
                 <img src="{{ cast.profile_url }}" alt="Profile" class="cast-poster">
                 <div class="cast-details">
@@ -60,7 +67,5 @@
         {% endfor %}
     </div>
 </div>
-
-
 
 {% endblock %}

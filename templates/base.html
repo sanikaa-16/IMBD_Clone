@@ -34,7 +34,15 @@
             </div>
             <div class="nav-item"><i class="fa-solid fa-bookmark"></i> Watch-List</div>
             <div class="nav-item"><i class="fa-solid fa-sliders"></i> Get Recommendations</div>
-            <div class="nav-item">Sign-in <i class="fa-solid fa-circle-user"></i> </div>
+        {% if session.username %}
+            <a class="nav-item" href="{{ url_for('profile', user_id=session.user_id) }}" style="text-decoration: none; color: white;">
+                {{ session.username }} <i class="fa-solid fa-circle-user"></i>
+            </a>
+        {% else %}
+            <a class="nav-item" href="{{ url_for('sign_in') }}" style="text-decoration: none; color: white;">
+            Sign-in <i class="fa-solid fa-circle-user"></i>
+            </a>
+        {% endif %}
         </div>
     </nav>
 

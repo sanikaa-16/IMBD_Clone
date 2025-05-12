@@ -1,0 +1,38 @@
+.container {
+    padding: 40px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.watchlist-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.watchlist-item {
+    display: flex;
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+.poster {
+    width: 150px;
+    object-fit: cover;
+    border-right: 1px solid #444;
+}
+
+.movie-details {
+    padding: 20px;
+}
+
+.movie-details h2 {
+    margin-top: 0;
+    color: #f3e937;
+}
+
+.movie-details p {
+    margin: 8px 0;
+}

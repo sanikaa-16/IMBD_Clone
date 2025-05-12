@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}IMDb: Your Watchlist{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='watchlist.css') }}">
+
+<div class="container">
+    <h1>Your Watchlist</h1>
+
+    {% if not movies %}
+        <p style="color:white; font-size:18px;">You haven't added any movies yet.</p>
+    {% else %}
+        <div class="watchlist-grid">
+            {% for movie in movies %}
+            <div class="watchlist-item">
+                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster" class="poster">
+                <div class="movie-details">
+                    <h2>{{ movie.title }}</h2>
+                    <p><strong>Overview:</strong> {{ movie.overview }}</p>
+                    <p><strong>Language:</strong> {{ movie.language }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

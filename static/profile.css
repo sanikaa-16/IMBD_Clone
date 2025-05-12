@@ -1,0 +1,71 @@
+.profile-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #222;
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+}
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #f5c518;
+    object-fit: cover;
+}
+.profile-details {
+    margin-left: 30px;
+}
+.profile-activity {
+    margin-top: 30px;
+}
+.profile-activity ul {
+    list-style: none;
+    padding: 0;
+}
+.profile-activity li {
+    margin: 10px 0;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.profile-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Watchlist button style */
+.profile-watchlist-btn {
+    background-color: #f5c518;
+    color: #000;
+}
+
+.profile-watchlist-btn:hover {
+    background-color: #e4b415;
+}
+
+/* Logout button style */
+.logout-btn {
+    background-color: #ff4c4c;
+    color: white;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000;
+}

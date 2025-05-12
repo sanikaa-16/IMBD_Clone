@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sign_in.css') }}">
+</head>
+<body>
+    <div class="signin-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="IMDb Logo" class="logo-img">
+        <div class="signin-box">
+            <h1>Sign-In</h1>
+
+            <form method="POST" action="{{ url_for('sign_in') }}">
+                <label for="login">Email or mobile phone number</label>
+                <input type="text" id="login" name="login" placeholder="Enter email or mobile" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit" class="signin-btn">Sign in</button>
+            </form>
+
+            <div class="divider"><span>New to IMDb?</span></div>
+
+            <a href="{{ url_for('create_account') }}">
+                <button type="button" class="create-account-btn">Create your IMDb account</button>
+            </a>
+        </div>
+    </div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+      {% for category, message in messages %}
+        <li class="flash-{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+</body>
+</html>
+
