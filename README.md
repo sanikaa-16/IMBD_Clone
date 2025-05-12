@@ -1,12 +1,11 @@
 
-````markdown
-# 🎬 IMDb Clone
+### 🎬 IMDb Clone
 
 A feature-rich **IMDb Clone Web Application** built using **Flask**, allowing users to explore movie details, maintain a personal watchlist, and get smart recommendations based on their preferences.
 
 ---
 
-## 🌟 Features
+###🌟 Features
 
 ### 🔐 User Authentication
 - **Login / Sign Up** system with Flask sessions.
@@ -39,7 +38,7 @@ A feature-rich **IMDb Clone Web Application** built using **Flask**, allowing us
 
 ---
 
-## ⚙️ Tech Stack
+### ⚙️ Tech Stack
 
 - **Backend:** Flask, Python
 - **Frontend:** HTML, CSS, Jinja2
